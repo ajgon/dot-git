@@ -24,7 +24,8 @@
     credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
     # Interactive rebase with the given number of latest commits
     reb = "!r() { git rebase -i HEAD~$1; }; r"
-    ci = commit
+    # If commitizen is supported fire it up
+    ci = "!c() { if grep -q commitizen package.json > /dev/null 2>&1; then npx git-cz; else eval \"git commit $(printf \"%q \" \"$@\")\"; fi; }; c"
     cins = commit --no-gpg-sign
     co = checkout
     st = status
@@ -65,7 +66,7 @@
 
 [core]
     editor = vim
-    pager = /home/ajgon/.config/git/diff-highlight
+	pager = /Users/ajgon/.config/git/diff-highlight
 
 [diff]
     # Detect copies as well as renames

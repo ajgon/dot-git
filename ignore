@@ -15,6 +15,7 @@ Thumbs.db
 
 # IDE Files
 *.swp
+*.swo
 *~
 *.sublime-workspace
 .idea

@@ -37,3 +37,7 @@ pkg.unlink() {
 pkg.uninstall() {
     : # No action
 }
+
+pkg.init() {
+    export PATH="$XDG_CONFIG_HOME/git/git-fuzzy/bin:$PATH"
+}

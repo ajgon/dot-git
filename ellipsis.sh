@@ -13,6 +13,9 @@ pkg.link() {
     fi
     fs.link_file "${PKG_PATH}" "${config_home}/git"
 
+    if which qubes-gpg-client-wrapper; then
+        git config --global gpg.program "qubes-gpg-client-wrapper"
+    fi
     git config --global core.pager "${config_home}/git/diff-highlight"
 }
 
